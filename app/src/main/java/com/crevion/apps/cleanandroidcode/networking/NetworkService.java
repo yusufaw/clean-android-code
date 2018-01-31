@@ -11,6 +11,6 @@ import rx.Observable;
  */
 
 public interface NetworkService {
-    @GET("v1/city")
+    @GET("v1/cities")
     Observable<CityListResponse> getCityList();
 }

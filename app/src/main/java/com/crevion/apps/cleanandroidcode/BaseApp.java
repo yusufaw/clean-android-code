@@ -1,7 +1,6 @@
 package com.crevion.apps.cleanandroidcode;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.crevion.apps.cleanandroidcode.deps.DaggerDeps;
@@ -18,7 +17,7 @@ public class BaseApp extends AppCompatActivity{
     Deps deps;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         File cacheFile = new File(getCacheDir(), "responses");
         deps = DaggerDeps.builder().networkModule(new NetworkModule(cacheFile)).build();
