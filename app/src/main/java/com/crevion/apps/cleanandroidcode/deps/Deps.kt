@@ -2,6 +2,7 @@ package com.crevion.apps.cleanandroidcode.deps
 
 import com.crevion.apps.cleanandroidcode.ui.home.HomeActivity
 import com.crevion.apps.cleanandroidcode.networking.NetworkModule
+import com.crevion.apps.cleanandroidcode.preferences.PreferencesModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -10,7 +11,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = [NetworkModule::class])
+@Component(modules = [NetworkModule::class, PreferencesModule::class])
 interface Deps {
     fun inject(homeActivity: HomeActivity)
 }
