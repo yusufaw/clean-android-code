@@ -40,15 +40,9 @@ class HomeAdapter(private val context: Context, private val data: List<CityListD
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        internal var textViewCity: TextView
-        internal var textViewDescription: TextView
-        internal var imageViewBackground: ImageView
-
-        init {
-            textViewCity = itemView.findViewById(R.id.city)
-            textViewDescription = itemView.findViewById(R.id.hotel)
-            imageViewBackground = itemView.findViewById(R.id.image)
-        }
+        internal var textViewCity: TextView = itemView.findViewById(R.id.city)
+        internal var textViewDescription: TextView = itemView.findViewById(R.id.hotel)
+        internal var imageViewBackground: ImageView = itemView.findViewById(R.id.image)
 
         fun click(cityListData: CityListData, listener: OnItemClickListener) {
             itemView.setOnClickListener { listener.onClick(cityListData) }
