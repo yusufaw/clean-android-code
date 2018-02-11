@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.crevion.apps.cleanandroidcode.deps.DaggerDeps
 import com.crevion.apps.cleanandroidcode.deps.Deps
 import com.crevion.apps.cleanandroidcode.networking.NetworkModule
+import com.crevion.apps.cleanandroidcode.preferences.PreferencesModule
 import java.io.File
 
 /**
@@ -16,6 +17,10 @@ open class BaseApp: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val cacheFile = File(cacheDir, "responses")
-        deps = DaggerDeps.builder().networkModule(NetworkModule(cacheFile)).build()
+        deps = DaggerDeps
+                .builder()
+                .networkModule(NetworkModule(cacheFile))
+                .preferencesModule(PreferencesModule(application))
+                .build()
     }
 }

@@ -10,7 +10,9 @@ import com.crevion.apps.cleanandroidcode.BaseApp
 import com.crevion.apps.cleanandroidcode.R
 import com.crevion.apps.cleanandroidcode.models.CityListData
 import com.crevion.apps.cleanandroidcode.models.CityListResponse
+import com.crevion.apps.cleanandroidcode.models.User
 import com.crevion.apps.cleanandroidcode.networking.Service
+import com.crevion.apps.cleanandroidcode.preferences.PreferencesUtil
 import javax.inject.Inject
 
 /**
@@ -22,11 +24,14 @@ class HomeActivity : BaseApp(), HomeView {
     private var recyclerView: RecyclerView? = null
     @Inject
     lateinit var service: Service
+    @Inject
+    lateinit var preferencesUtil: PreferencesUtil
     private var progressBar: ProgressBar? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         deps.inject(this)
+        preferencesUtil.putUserLogin(User("xxx", "Yusuf Aji", "Wibowow", "ucupper@gmail.com", "oke"))
         renderView()
         init()
 
@@ -65,5 +70,6 @@ class HomeActivity : BaseApp(), HomeView {
                 })
 
         recyclerView!!.adapter = homeAdapter
+        Toast.makeText(this, preferencesUtil.getUserLogin().firstName, Toast.LENGTH_LONG).show()
     }
 }

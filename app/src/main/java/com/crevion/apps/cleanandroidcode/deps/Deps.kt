@@ -11,7 +11,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = [NetworkModule::class, PreferencesModule::class])
+@Component(modules = [PreferencesModule::class, NetworkModule::class])
 interface Deps {
     fun inject(homeActivity: HomeActivity)
 }
